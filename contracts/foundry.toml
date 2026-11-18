@@ -31,5 +31,5 @@ fuzz = { runs = 2048 }
 invariant = { runs = 256, depth = 96 }
 
 [rpc_endpoints]
-bsc_testnet = "https://data-seed-prebsc-1-s1.bnbchain.org:8545"
+bsc_testnet = "https://bsc-testnet-rpc.publicnode.com"
 bsc = "https://bsc-dataseed.bnbchain.org"

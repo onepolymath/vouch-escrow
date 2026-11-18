@@ -28,7 +28,7 @@ const chains: Record<number, Chain> = { 56: bsc, 97: bscTestnet, 31337: foundry 
 
 const defaultRpc: Record<number, string> = {
   56: "https://bsc-dataseed.bnbchain.org",
-  97: "https://data-seed-prebsc-1-s1.bnbchain.org:8545",
+  97: "https://bsc-testnet-rpc.publicnode.com",
   31337: "http://127.0.0.1:8545",
 };
 
