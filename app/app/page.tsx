@@ -92,8 +92,8 @@ export default function Home() {
         <Card>
           <h2 className="font-semibold">Using an Agentic Wallet?</h2>
           <p className="mt-1.5 text-sm text-muted">
-            Every step shows the exact command for your agent to run. Nothing here asks for a pairing
-            code or a QR scan.
+            Every step shows the exact command for your agent to run. Nothing here asks for a
+            pairing code or a QR scan.
           </p>
         </Card>
       </section>

@@ -38,7 +38,10 @@ function DealResult({ id }: { id: bigint }) {
         <p className="num mt-2 text-2xl font-semibold">{formatAmount(deal.amount)}</p>
         <p className="mt-3 text-sm text-muted">Seller</p>
         <AddressTag address={deal.seller} />
-        <Link href={`/d/${id}`} className="mt-4 inline-block text-sm font-medium text-accent underline">
+        <Link
+          href={`/d/${id}`}
+          className="mt-4 inline-block text-sm font-medium text-accent underline"
+        >
           Open the deal
         </Link>
       </Card>
@@ -60,12 +63,14 @@ function Result() {
     case "name":
       return (
         <Notice tone="pending" title="Vouch checks addresses, not names">
-          Looking up someone&apos;s wallet from their Agent ID name isn&apos;t something this tool does.
-          Ask them for their wallet address, or open the deal link they sent you.
+          Looking up someone&apos;s wallet from their Agent ID name isn&apos;t something this tool
+          does. Ask them for their wallet address, or open the deal link they sent you.
         </Notice>
       );
     default:
-      return <Notice tone="danger">That doesn&apos;t look like an address or a Vouch deal link.</Notice>;
+      return (
+        <Notice tone="danger">That doesn&apos;t look like an address or a Vouch deal link.</Notice>
+      );
   }
 }
 
@@ -75,7 +80,9 @@ function Inner() {
     <div className="mx-auto max-w-2xl space-y-6">
       <div>
         <h1 className="text-3xl font-semibold tracking-tight">Check before you pay</h1>
-        <p className="mt-2 text-muted">See whether an address holds an Agent ID and what its record on Vouch shows.</p>
+        <p className="mt-2 text-muted">
+          See whether an address holds an Agent ID and what its record on Vouch shows.
+        </p>
       </div>
       <CheckBox initial={q} compact />
       {!deployment ? <NotDeployed /> : <Result />}

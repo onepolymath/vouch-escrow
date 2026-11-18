@@ -40,18 +40,26 @@ export function AgentDrawer({ steps }: { steps: Step[] }) {
 
   return (
     <div>
-      <Button variant="ghost" className="px-0 text-accent hover:bg-transparent" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
+      <Button
+        variant="ghost"
+        className="px-0 text-accent hover:bg-transparent"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+      >
         {open ? "Hide agent commands" : "Run with your agent"}
       </Button>
       {open ? (
         <div className="mt-3 space-y-4 rounded-xl border border-line bg-surface-2 p-4">
           {!mainnet ? (
             <Notice tone="pending">
-              This is the test deployment. Agentic Wallet works on BNB Chain mainnet, so on testnet use a normal
-              wallet. The commands below show the shape for mainnet.
+              This is the test deployment. Agentic Wallet works on BNB Chain mainnet, so on testnet
+              use a normal wallet. The commands below show the shape for mainnet.
             </Notice>
           ) : null}
-          <Field label="Your Agentic Wallet address" hint="The address your agent signs with. It is used only to build the command.">
+          <Field
+            label="Your Agentic Wallet address"
+            hint="The address your agent signs with. It is used only to build the command."
+          >
             <input
               className={`${inputClass} font-mono`}
               value={from}

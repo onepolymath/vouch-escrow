@@ -67,11 +67,19 @@ export function TxButton({ steps, label, disabled, variant = "primary", onDone }
   }
 
   if (!isConnected) {
-    return <p className="text-sm text-muted">Connect a wallet to do this here, or use “Run with your agent”.</p>;
+    return (
+      <p className="text-sm text-muted">
+        Connect a wallet to do this here, or use “Run with your agent”.
+      </p>
+    );
   }
   if (target && chainId !== target.id) {
     return (
-      <Button variant="secondary" disabled={switching} onClick={() => switchChain({ chainId: target.id })}>
+      <Button
+        variant="secondary"
+        disabled={switching}
+        onClick={() => switchChain({ chainId: target.id })}
+      >
         Switch to {target.name}
       </Button>
     );
@@ -82,9 +90,13 @@ export function TxButton({ steps, label, disabled, variant = "primary", onDone }
   return (
     <div className="space-y-3">
       <Button variant={variant} disabled={disabled || busy} onClick={run}>
-        {busy ? `${phase.label}${steps.length > 1 ? ` (${phase.at} of ${steps.length})` : ""}…` : label}
+        {busy
+          ? `${phase.label}${steps.length > 1 ? ` (${phase.at} of ${steps.length})` : ""}…`
+          : label}
       </Button>
-      {busy ? <p className="text-xs text-muted">Confirm in your wallet, then wait a few seconds.</p> : null}
+      {busy ? (
+        <p className="text-xs text-muted">Confirm in your wallet, then wait a few seconds.</p>
+      ) : null}
       {link && !busy ? (
         <p className="text-xs text-muted">
           Sent.{" "}

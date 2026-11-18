@@ -17,7 +17,11 @@ export function ConnectButton() {
     return (
       <div className="flex items-center gap-2">
         <span className="rounded-xl border border-line bg-surface px-3 py-2 text-sm font-medium">
-          {handle ? <span>{handle}</span> : <span className="font-mono text-xs">{shortAddress(address)}</span>}
+          {handle ? (
+            <span>{handle}</span>
+          ) : (
+            <span className="font-mono text-xs">{shortAddress(address)}</span>
+          )}
         </span>
         <Button variant="ghost" className="min-h-9 px-3" onClick={() => disconnect()}>
           Disconnect

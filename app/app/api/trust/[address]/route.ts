@@ -16,7 +16,10 @@ export async function GET(_req: Request, ctx: { params: Promise<{ address: strin
     return NextResponse.json({ error: "Not a valid address" }, { status: 400 });
   }
   if (!deployment || !serverClient) {
-    return NextResponse.json({ error: "Vouch is not deployed on this network yet" }, { status: 503 });
+    return NextResponse.json(
+      { error: "Vouch is not deployed on this network yet" },
+      { status: 503 },
+    );
   }
   try {
     const data = await readTrust(serverClient, deployment.vouch, address);

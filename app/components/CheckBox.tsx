@@ -5,7 +5,13 @@ import { useState } from "react";
 import { parseInput } from "@/lib/parse-input";
 import { Button, inputClass, Notice } from "./ui";
 
-export function CheckBox({ initial = "", compact = false }: { initial?: string; compact?: boolean }) {
+export function CheckBox({
+  initial = "",
+  compact = false,
+}: {
+  initial?: string;
+  compact?: boolean;
+}) {
   const router = useRouter();
   const [value, setValue] = useState(initial);
   const [problem, setProblem] = useState<string | null>(null);

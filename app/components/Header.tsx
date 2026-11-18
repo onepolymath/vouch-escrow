@@ -38,7 +38,10 @@ export function Header() {
           <Logo />
           Vouch
         </Link>
-        <nav aria-label="Main" className="order-3 flex w-full flex-wrap gap-1 sm:order-none sm:w-auto">
+        <nav
+          aria-label="Main"
+          className="order-3 flex w-full flex-wrap gap-1 sm:order-none sm:w-auto"
+        >
           {links.map((l) => {
             const active = path === l.href || (l.href !== "/" && path.startsWith(l.href));
             return (

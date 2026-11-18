@@ -24,12 +24,16 @@ export function Stepper({ status }: { status: number }) {
               >
                 {done ? "✓" : i + 1}
               </span>
-              <span className={`hidden text-sm font-medium sm:inline ${done || here || bad ? "" : "text-muted"}`}>
+              <span
+                className={`hidden text-sm font-medium sm:inline ${done || here || bad ? "" : "text-muted"}`}
+              >
                 {label}
               </span>
             </div>
             {i < stepLabels.length - 1 ? (
-              <span className={`mx-3 h-0.5 flex-1 rounded ${i < current ? "bg-accent" : "bg-line"}`} />
+              <span
+                className={`mx-3 h-0.5 flex-1 rounded ${i < current ? "bg-accent" : "bg-line"}`}
+              />
             ) : null}
           </li>
         );

@@ -38,7 +38,10 @@ export function useAgentId(address: Address | undefined) {
     args: address ? [address] : undefined,
     query: { enabled: !!deployment && !!address, staleTime: 30_000 },
   });
-  const [holds, handle] = (q.data as readonly [boolean, string] | undefined) ?? [undefined, undefined];
+  const [holds, handle] = (q.data as readonly [boolean, string] | undefined) ?? [
+    undefined,
+    undefined,
+  ];
   return { holds, handle: holds ? handle || null : null, isLoading: q.isLoading };
 }
 

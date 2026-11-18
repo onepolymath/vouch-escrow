@@ -43,7 +43,9 @@ export function Button({
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <section className={`rounded-xl border border-line bg-surface p-5 shadow-card sm:p-6 ${className}`}>
+    <section
+      className={`rounded-xl border border-line bg-surface p-5 shadow-card sm:p-6 ${className}`}
+    >
       {children}
     </section>
   );

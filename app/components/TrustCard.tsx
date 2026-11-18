@@ -34,7 +34,12 @@ export function TrustCard({ data }: { data: TrustData }) {
 
       <p className="mt-2 break-all">
         {link ? (
-          <a className="underline-offset-2 hover:underline" href={link} target="_blank" rel="noreferrer">
+          <a
+            className="underline-offset-2 hover:underline"
+            href={link}
+            target="_blank"
+            rel="noreferrer"
+          >
             <Mono className="text-muted">{data.address}</Mono>
           </a>
         ) : (

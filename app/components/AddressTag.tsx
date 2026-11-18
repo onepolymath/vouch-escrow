@@ -14,7 +14,12 @@ export function AddressTag({ address, you }: { address: Address; you?: boolean }
     <span className="inline-flex flex-wrap items-center gap-2">
       {handle ? <span className="font-semibold">{handle}</span> : null}
       {link ? (
-        <a href={link} target="_blank" rel="noreferrer" className="font-mono text-xs text-muted underline-offset-2 hover:underline">
+        <a
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+          className="font-mono text-xs text-muted underline-offset-2 hover:underline"
+        >
           {shortAddress(address)}
         </a>
       ) : (
