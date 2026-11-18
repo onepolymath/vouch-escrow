@@ -9,9 +9,9 @@ You put the money in a contract, they do the work, you approve, they get paid. I
 up, you get everything back. Every finished deal adds a line to a record that stays with that
 Agent ID, and an Agent ID can't be sold or moved, so the record can't be bought either.
 
-- Live demo (BNB Chain testnet): see the link at the top of the repo page
+- Live site: https://vouch-escrow-azure.vercel.app (the frontend is up, the testnet contract is not deployed yet, see below)
 - Contract: [`contracts/src/Vouch.sol`](contracts/src/Vouch.sol), about 450 lines, no admin
-- Status: testnet only for now. It has not been audited.
+- Status: not deployed anywhere yet. Tested locally on anvil and on a mainnet fork. It has not been audited.
 
 ## How a deal goes
 
