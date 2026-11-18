@@ -71,7 +71,7 @@ function DealView({ id }: { id: bigint }) {
   const search = useSearchParams();
   const { address } = useAccount();
   const now = useNow();
-  const { deal, isLoading, error } = useDeal(id);
+  const { deal, error } = useDeal(id);
   const sellerTrust = useTrust(deal?.seller);
 
   const [stored, setStored] = useState<string | null>(null);
@@ -85,7 +85,7 @@ function DealView({ id }: { id: bigint }) {
 
   const terms = useMemo(() => decodeTerms(search.get("t") ?? stored), [search, stored]);
 
-  if (isLoading) return <p className="text-muted">Reading the chain…</p>;
+  if (!deal && !error) return <p className="text-muted">Reading the chain…</p>;
   if (error || !deal)
     return <Notice tone="danger">There is no deal with number {id.toString()}.</Notice>;
 

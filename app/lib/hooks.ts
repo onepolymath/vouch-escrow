@@ -25,7 +25,7 @@ export function useDeal(id: bigint | undefined) {
     abi: vouchAbi,
     functionName: "getDeal",
     args: id === undefined ? undefined : [id],
-    query: { enabled: !!deployment && id !== undefined, refetchInterval: 6_000 },
+    query: { enabled: !!deployment && id !== undefined, refetchInterval: 6_000, retry: 1 },
   });
   return { ...q, deal: q.data as Deal | undefined };
 }
