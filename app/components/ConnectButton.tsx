@@ -43,7 +43,8 @@ export function ConnectButton() {
           </p>
           {connectors.length === 0 ? (
             <p className="px-1 py-2 text-sm">
-              No browser wallet found. Install one such as MetaMask or Rabby, or use “Run with your agent” on any step.
+              No browser wallet found. Install one such as MetaMask or Rabby, or use “Run with your
+              agent” on any step.
             </p>
           ) : null}
           <ul className="space-y-1">

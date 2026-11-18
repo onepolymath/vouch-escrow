@@ -42,15 +42,27 @@ function Verify({ label, hash }: { label: string; hash: string }) {
   );
 }
 
-function Countdown({ to, now, label, live }: { to: number; now: number; label: string; live: boolean }) {
+function Countdown({
+  to,
+  now,
+  label,
+  live,
+}: {
+  to: number;
+  now: number;
+  label: string;
+  live: boolean;
+}) {
   const left = to - now;
   return (
     <div>
       <dt className="text-xs text-muted">{label}</dt>
       <dd className="mt-0.5 font-medium">{formatUtc(to)}</dd>
-      <dd className="num text-xs text-muted">
-        {left > 0 ? `${formatDuration(left)} left` : "passed"}
-      </dd>
+      {live ? (
+        <dd className="num text-xs text-muted">
+          {left > 0 ? `${formatDuration(left)} left` : "passed"}
+        </dd>
+      ) : null}
     </div>
   );
 }
@@ -169,7 +181,12 @@ function DealView({ id }: { id: bigint }) {
 
       <Card>
         <dl className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-          <Countdown to={Number(deal.deliverBy)} now={now} label="Deliver by" live={deal.status <= Status.Funded} />
+          <Countdown
+            to={Number(deal.deliverBy)}
+            now={now}
+            label="Deliver by"
+            live={deal.status <= Status.Funded}
+          />
           <div>
             <dt className="text-xs text-muted">Review window</dt>
             <dd className="mt-0.5 font-medium">{formatDuration(deal.reviewSecs)}</dd>

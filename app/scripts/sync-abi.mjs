@@ -3,7 +3,9 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
 const artifact = (name) =>
-  JSON.parse(readFileSync(new URL(`../../contracts/out/${name}.sol/${name}.json`, import.meta.url), "utf8"));
+  JSON.parse(
+    readFileSync(new URL(`../../contracts/out/${name}.sol/${name}.json`, import.meta.url), "utf8"),
+  );
 
 const pick = (abi) => abi.filter((x) => x.type !== "constructor");
 
