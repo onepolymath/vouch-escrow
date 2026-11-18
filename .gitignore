@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+.vercel
+coverage/
+contracts/cache/
+contracts/out/
+contracts/broadcast/
+contracts/lcov.info
+app/tsconfig.tsbuildinfo
