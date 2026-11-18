@@ -9,7 +9,7 @@ app:
 test: contracts
 	cd app && pnpm test
 
-# the same steps as .github/workflows/ci.yml
+# the same steps as ci/ci.yml
 ci:
 	cd contracts && forge fmt --check && forge build --sizes && FOUNDRY_PROFILE=ci forge test
 	$(MAKE) app
