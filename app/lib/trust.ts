@@ -65,7 +65,7 @@ export async function readTrust(
       disputesOpened: record.disputesOpened,
       missedDeadlines: record.missedDeadlines,
       volume: record.volume.toString(),
-      since: record.since === 0n || record.since === 0 ? null : Number(record.since),
+      since: record.since === 0n ? null : Number(record.since),
     },
     dealCount: Number(count),
     profileHash: noProfile ? null : profile,

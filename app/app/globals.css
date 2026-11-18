@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #f1f3f6;
+  --ink: #0b1220;
+  --muted: #5b6577;
+  --border: #e4e7ec;
+  --accent: #0e9f6e;
+  --accent-ink: #ffffff;
+  --accent-soft: #e6f6ef;
+  --pending: #b7791f;
+  --pending-soft: #fbf3e2;
+  --dispute: #c2410c;
+  --dispute-soft: #fdeee6;
+  --danger: #dc2626;
+  --danger-soft: #fdecec;
+  --info: #2563eb;
+  --shadow: 0 1px 2px rgba(11, 18, 32, 0.06), 0 4px 16px rgba(11, 18, 32, 0.04);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0f18;
+    --surface: #0f1623;
+    --surface-2: #141c2b;
+    --ink: #e6eaf2;
+    --muted: #9aa4b5;
+    --border: #1f2937;
+    --accent: #22c58b;
+    --accent-ink: #04120c;
+    --accent-soft: #0e2a21;
+    --pending: #e0a93b;
+    --pending-soft: #2a2110;
+    --dispute: #f08a5d;
+    --dispute-soft: #2d1a12;
+    --danger: #f87171;
+    --danger-soft: #2d1515;
+    --info: #60a5fa;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-pending: var(--pending);
+  --color-pending-soft: var(--pending-soft);
+  --color-dispute: var(--dispute);
+  --color-dispute-soft: var(--dispute-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+  --shadow-card: var(--shadow);
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
