@@ -1,4 +1,12 @@
 {
-  "97": null,
+  "97": {
+    "agentId": "0xBde5DaaD74E3d17519Ad8de5Ab9C3AD77CD80c6d",
+    "chainId": 97,
+    "deployBlock": 143467684,
+    "mockRegistry": true,
+    "token0": "0xACb55d65cd1c0dEc5149feD12aC8b5465cBb691c",
+    "token1": "0xAD93060Fe89356789Bc43c050C35756BC6F23a93",
+    "vouch": "0x07E0C05b5097cA7eE4e03485504323f696c5F6cb"
+  },
   "56": null
 }
