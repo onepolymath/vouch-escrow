@@ -38,16 +38,17 @@ const symbols: Record<number, [string, string]> = {
   31337: ["tUSDT", "tUSDC"],
 };
 
+// Next only inlines NEXT_PUBLIC_ variables when they are written out in full like this.
+// Reading them through `const e = process.env` works on the server and breaks in the browser.
 function fromEnv(): Stored {
-  const e = process.env;
-  if (!e.NEXT_PUBLIC_VOUCH_ADDRESS) return null;
+  if (!process.env.NEXT_PUBLIC_VOUCH_ADDRESS) return null;
   return {
-    chainId: Number(e.NEXT_PUBLIC_CHAIN_ID ?? 97),
-    vouch: e.NEXT_PUBLIC_VOUCH_ADDRESS as Address,
-    agentId: e.NEXT_PUBLIC_AGENT_ID_ADDRESS as Address,
-    token0: e.NEXT_PUBLIC_TOKEN0_ADDRESS as Address,
-    token1: e.NEXT_PUBLIC_TOKEN1_ADDRESS as Address,
-    mockRegistry: e.NEXT_PUBLIC_MOCK_REGISTRY === "true",
+    chainId: Number(process.env.NEXT_PUBLIC_CHAIN_ID ?? 97),
+    vouch: process.env.NEXT_PUBLIC_VOUCH_ADDRESS as Address,
+    agentId: process.env.NEXT_PUBLIC_AGENT_ID_ADDRESS as Address,
+    token0: process.env.NEXT_PUBLIC_TOKEN0_ADDRESS as Address,
+    token1: process.env.NEXT_PUBLIC_TOKEN1_ADDRESS as Address,
+    mockRegistry: process.env.NEXT_PUBLIC_MOCK_REGISTRY === "true",
     deployBlock: 0,
   };
 }

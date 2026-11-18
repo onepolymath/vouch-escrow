@@ -42,7 +42,7 @@ function Verify({ label, hash }: { label: string; hash: string }) {
   );
 }
 
-function Countdown({ to, now, label }: { to: number; now: number; label: string }) {
+function Countdown({ to, now, label, live }: { to: number; now: number; label: string; live: boolean }) {
   const left = to - now;
   return (
     <div>
@@ -169,7 +169,7 @@ function DealView({ id }: { id: bigint }) {
 
       <Card>
         <dl className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-          <Countdown to={Number(deal.deliverBy)} now={now} label="Deliver by" />
+          <Countdown to={Number(deal.deliverBy)} now={now} label="Deliver by" live={deal.status <= Status.Funded} />
           <div>
             <dt className="text-xs text-muted">Review window</dt>
             <dd className="mt-0.5 font-medium">{formatDuration(deal.reviewSecs)}</dd>

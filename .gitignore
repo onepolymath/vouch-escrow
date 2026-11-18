@@ -13,3 +13,4 @@ contracts/out/
 contracts/broadcast/
 contracts/lcov.info
 app/tsconfig.tsbuildinfo
+app/next-env.d.ts
