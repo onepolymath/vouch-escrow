@@ -19,7 +19,8 @@ export function bawPreview(opts: { chainId: number; from: Address; call: RawCall
   ].join(" ");
 }
 
-export const bawExecute = "baw contract-call execute --requestId <requestId from the preview> --json";
+export const bawExecute =
+  "baw contract-call execute --requestId <requestId from the preview> --json";
 
 export const bawChecklist = [
   "Developer Mode is on in the Binance app (Agentic Wallet, Settings). It stays on for 7 days.",

@@ -24,7 +24,12 @@ export function toRawCall(step: Step): RawCall {
   };
 }
 
-const v = (vouch: Address, label: string, functionName: string, args: readonly unknown[]): Step => ({
+const v = (
+  vouch: Address,
+  label: string,
+  functionName: string,
+  args: readonly unknown[],
+): Step => ({
   label,
   address: vouch,
   abi: vouchAbi as Abi,
@@ -44,8 +49,7 @@ export type CreateInput = {
 };
 
 export const steps = {
-  createDeal: (vouch: Address, p: CreateInput) =>
-    [v(vouch, "Create the deal", "createDeal", [p])],
+  createDeal: (vouch: Address, p: CreateInput) => [v(vouch, "Create the deal", "createDeal", [p])],
 
   /** Exact amount only, never an unlimited approval. */
   fund: (vouch: Address, id: bigint, token: Address, amount: bigint): Step[] => [
@@ -63,7 +67,9 @@ export const steps = {
   markDelivered: (vouch: Address, id: bigint, proof: Hex) => [
     v(vouch, "Mark as delivered", "markDelivered", [id, proof]),
   ],
-  approve: (vouch: Address, id: bigint) => [v(vouch, "Approve and pay the seller", "approve", [id])],
+  approve: (vouch: Address, id: bigint) => [
+    v(vouch, "Approve and pay the seller", "approve", [id]),
+  ],
   dispute: (vouch: Address, id: bigint, evidence: Hex) => [
     v(vouch, "Open a dispute", "dispute", [id, evidence]),
   ],
@@ -76,13 +82,19 @@ export const steps = {
   proposeSplit: (vouch: Address, id: bigint, sellerBps: number) => [
     v(vouch, "Propose a split", "proposeSplit", [id, sellerBps]),
   ],
-  acceptSplit: (vouch: Address, id: bigint) => [v(vouch, "Accept the proposed split", "acceptSplit", [id])],
+  acceptSplit: (vouch: Address, id: bigint) => [
+    v(vouch, "Accept the proposed split", "acceptSplit", [id]),
+  ],
   arbiterResolve: (vouch: Address, id: bigint, sellerBps: number) => [
     v(vouch, "Decide the split", "arbiterResolve", [id, sellerBps]),
   ],
   settleAfterTimeout: (vouch: Address, id: bigint) => [
     v(vouch, "Settle with an even split", "settleAfterTimeout", [id]),
   ],
-  withdraw: (vouch: Address, token: Address) => [v(vouch, "Withdraw held funds", "withdraw", [token])],
-  openProfile: (vouch: Address, hash: Hex) => [v(vouch, "Open your profile", "openProfile", [hash])],
+  withdraw: (vouch: Address, token: Address) => [
+    v(vouch, "Withdraw held funds", "withdraw", [token]),
+  ],
+  openProfile: (vouch: Address, hash: Hex) => [
+    v(vouch, "Open your profile", "openProfile", [hash]),
+  ],
 };

@@ -29,7 +29,8 @@ const friendly: Record<string, string> = {
 /** Turns whatever the wallet or RPC threw into one sentence a person can act on. */
 export function explainError(err: unknown): string {
   if (err instanceof BaseError) {
-    if (err.walk((e) => e instanceof UserRejectedRequestError)) return "You cancelled the request in your wallet.";
+    if (err.walk((e) => e instanceof UserRejectedRequestError))
+      return "You cancelled the request in your wallet.";
     const reverted = err.walk((e) => e instanceof ContractFunctionRevertedError);
     if (reverted instanceof ContractFunctionRevertedError) {
       const name = reverted.data?.errorName;

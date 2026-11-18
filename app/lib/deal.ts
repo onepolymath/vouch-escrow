@@ -39,13 +39,33 @@ export type Tone = "neutral" | "accent" | "pending" | "dispute" | "danger";
 
 export const statusLabel: Record<number, { label: string; tone: Tone; hint: string }> = {
   [Status.Open]: { label: "Open", tone: "neutral", hint: "Waiting for a buyer to fund it." },
-  [Status.Funded]: { label: "Funded", tone: "pending", hint: "Money is in escrow. Waiting for delivery." },
-  [Status.Delivered]: { label: "Delivered", tone: "pending", hint: "The buyer is reviewing the delivery." },
+  [Status.Funded]: {
+    label: "Funded",
+    tone: "pending",
+    hint: "Money is in escrow. Waiting for delivery.",
+  },
+  [Status.Delivered]: {
+    label: "Delivered",
+    tone: "pending",
+    hint: "The buyer is reviewing the delivery.",
+  },
   [Status.Released]: { label: "Done", tone: "accent", hint: "The seller was paid." },
-  [Status.Disputed]: { label: "Disputed", tone: "dispute", hint: "The buyer objected. A split is being sorted out." },
+  [Status.Disputed]: {
+    label: "Disputed",
+    tone: "dispute",
+    hint: "The buyer objected. A split is being sorted out.",
+  },
   [Status.Settled]: { label: "Settled", tone: "accent", hint: "The dispute ended with a split." },
-  [Status.Refunded]: { label: "Refunded", tone: "neutral", hint: "The seller missed the deadline and the buyer got the money back." },
-  [Status.Cancelled]: { label: "Cancelled", tone: "neutral", hint: "The seller pulled the deal before it was funded." },
+  [Status.Refunded]: {
+    label: "Refunded",
+    tone: "neutral",
+    hint: "The seller missed the deadline and the buyer got the money back.",
+  },
+  [Status.Cancelled]: {
+    label: "Cancelled",
+    tone: "neutral",
+    hint: "The seller pulled the deal before it was funded.",
+  },
 };
 
 export const stepLabels = ["Open", "Funded", "Delivered", "Done"] as const;

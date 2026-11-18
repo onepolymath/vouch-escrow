@@ -18,6 +18,7 @@ export function parseInput(raw: string): ParsedInput {
   const deal = t.match(/\/d\/(\d{1,12})(?:[/?#]|$)/);
   if (deal?.[1]) return { kind: "deal", id: BigInt(deal[1]) };
 
+  if (/^0x/i.test(t)) return { kind: "invalid" };
   if (/^@?[a-z0-9]{1,32}(\.ai)?$/i.test(t)) return { kind: "name" };
   return { kind: "invalid" };
 }

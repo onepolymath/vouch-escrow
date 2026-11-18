@@ -26,10 +26,30 @@ export async function readTrust(
   address: Address,
 ): Promise<TrustData> {
   const [agent, record, count, profile] = await Promise.all([
-    client.readContract({ address: vouch, abi: vouchAbi, functionName: "agentIdOf", args: [address] }),
-    client.readContract({ address: vouch, abi: vouchAbi, functionName: "trackRecord", args: [address] }),
-    client.readContract({ address: vouch, abi: vouchAbi, functionName: "dealCountOf", args: [address] }),
-    client.readContract({ address: vouch, abi: vouchAbi, functionName: "profileOf", args: [address] }),
+    client.readContract({
+      address: vouch,
+      abi: vouchAbi,
+      functionName: "agentIdOf",
+      args: [address],
+    }),
+    client.readContract({
+      address: vouch,
+      abi: vouchAbi,
+      functionName: "trackRecord",
+      args: [address],
+    }),
+    client.readContract({
+      address: vouch,
+      abi: vouchAbi,
+      functionName: "dealCountOf",
+      args: [address],
+    }),
+    client.readContract({
+      address: vouch,
+      abi: vouchAbi,
+      functionName: "profileOf",
+      args: [address],
+    }),
   ]);
   const [holds, handle] = agent;
   const noProfile = /^0x0+$/.test(profile);
