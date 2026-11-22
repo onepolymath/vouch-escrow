@@ -9,10 +9,11 @@ You put the money in a contract, they do the work, you approve, they get paid. I
 up, you get everything back. Every finished deal adds a line to a record that stays with that
 Agent ID, and an Agent ID can't be sold or moved, so the record can't be bought either.
 
-- Live site: https://vouch-escrow-azure.vercel.app (BNB Chain testnet)
-- Testnet contract: [`0x07E0…F6cb`](https://testnet.bscscan.com/address/0x07E0C05b5097cA7eE4e03485504323f696c5F6cb), with a mock Agent ID registry and two test stablecoins, listed in [`contracts/deployments/97.json`](contracts/deployments/97.json)
+- Live site: https://vouch-escrow-azure.vercel.app (BNB Smart Chain mainnet)
+- Contract: [`0xBde5DaaD74E3d17519Ad8de5Ab9C3AD77CD80c6d`](https://bscscan.com/address/0xBde5DaaD74E3d17519Ad8de5Ab9C3AD77CD80c6d) on BNB Smart Chain. It points at the real Agent ID registry and the real USDT and USDC, see [`contracts/deployments/56.json`](contracts/deployments/56.json). Source verified on [Sourcify](https://repo.sourcify.dev/56/0xBde5DaaD74E3d17519Ad8de5Ab9C3AD77CD80c6d) (exact match)
+- Testnet copy: [`0x07E0…F6cb`](https://testnet.bscscan.com/address/0x07E0C05b5097cA7eE4e03485504323f696c5F6cb), with a mock Agent ID registry and two test stablecoins, listed in [`contracts/deployments/97.json`](contracts/deployments/97.json)
 - Contract: [`contracts/src/Vouch.sol`](contracts/src/Vouch.sol), about 450 lines, no admin
-- Status: live on BSC testnet only. Not on mainnet. It has not been audited, and the source isn't verified on BscScan yet.
+- Status: live on mainnet with deals capped at 1 to 1,000 USDT or USDC. It has not been audited.
 
 ## How a deal goes
 
