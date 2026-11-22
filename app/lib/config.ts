@@ -43,7 +43,7 @@ const symbols: Record<number, [string, string]> = {
 function fromEnv(): Stored {
   if (!process.env.NEXT_PUBLIC_VOUCH_ADDRESS) return null;
   return {
-    chainId: Number(process.env.NEXT_PUBLIC_CHAIN_ID ?? 97),
+    chainId: Number(process.env.NEXT_PUBLIC_CHAIN_ID ?? 56),
     vouch: process.env.NEXT_PUBLIC_VOUCH_ADDRESS as Address,
     agentId: process.env.NEXT_PUBLIC_AGENT_ID_ADDRESS as Address,
     token0: process.env.NEXT_PUBLIC_TOKEN0_ADDRESS as Address,
@@ -54,7 +54,7 @@ function fromEnv(): Stored {
 }
 
 function resolve(): Deployment | null {
-  const chainId = Number(process.env.NEXT_PUBLIC_CHAIN_ID ?? 97);
+  const chainId = Number(process.env.NEXT_PUBLIC_CHAIN_ID ?? 56);
   const stored =
     fromEnv() ?? ((deployments as Record<string, Stored>)[String(chainId)] as Stored | undefined);
   if (!stored) return null;
